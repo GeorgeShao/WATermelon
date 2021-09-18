@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Button from "../components/Button";
 import Header from "../components/Header";
 import Rating from "../components/Rating";
+import background from "./img/placeholder.png";
 
 class Page extends React.Component {
   constructor(props) {
@@ -26,7 +27,8 @@ class Page extends React.Component {
           display: "flex",
           justifyContent: "flex-start",
           width: "100vw",
-          // height: "100wh",
+          height: "100wh",
+          backgroundImage: `url(${background})`
         }}
       >
         {/* <Rating hertzValue={150} /> */}
