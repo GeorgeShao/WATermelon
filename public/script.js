@@ -17,12 +17,7 @@ function setup() {
 
 function listening() {
   console.log("ml pitch dectection listening");
-  pitch = ml5.pitchDetection(
-    mlModelURL,
-    audioContext,
-    mic.stream,
-    modelLoaded
-  );
+  pitch = ml5.pitchDetection(mlModelURL, audioContext, mic.stream, modelLoaded);
 }
 
 function gotPitch(error, frequency) {
