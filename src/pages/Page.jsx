@@ -14,9 +14,8 @@ class Page extends React.Component {
     render() {
         return(
             <div>
-                <Header/>
                 <Button/>
-                <Rating/>
+                <Rating hertzValue={150}/>
                 {this.state.recordingDone ? <Rating/> : <Button/>}
             </div>
         );

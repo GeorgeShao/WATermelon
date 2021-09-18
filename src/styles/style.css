@@ -2,6 +2,7 @@
     
 }
 
+/* header */
 .header {
     background-color: white;
     color: red;
@@ -11,4 +12,20 @@
 .headerTitle {
     text-align: left;
     margin: 1% 2%;
+}
+
+/* rating box*/
+.ratingBox {
+    border-radius: 30px;
+    border-color: green;
+    border-style: solid;
+    margin: 5em, 5em;
+    padding: 2em, 5em;
+    width: 10em;
+    /*
+    font-size:
+    text-color:
+    etc
+    */
+    text-align: center;
 }
