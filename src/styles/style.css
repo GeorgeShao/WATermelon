@@ -1,4 +1,7 @@
-* {
+/* */
+body {
+  background: #ffecd9;
+  padding: 1rem;
 }
 
 /* header */
@@ -6,6 +9,8 @@
   background-color: white;
   color: red;
   border-style: dashed;
+  width: 100%;
+  
 }
 
 .headerTitle {
@@ -13,7 +18,7 @@
   margin: 1% 2%;
 }
 
-/* rating box*/
+/* rating box */
 .ratingBox {
   border-radius: 30px;
   border-color: green;
@@ -28,3 +33,4 @@
     */
   text-align: center;
 }
+

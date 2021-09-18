@@ -1,12 +1,18 @@
 import React, { Component } from "react";
-import "../styles/button.css"
 
 export default class Button extends Component {
   render() {
     return (
-        <div>
-            <button class="recording-button">Start Recording</button>
-        </div>
+      <div 
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "35vh 40vw",
+          alignItems: "center",
+        }}
+      >
+        <button style={{margin: "0 auto"}}>Start Recording</button>
+      </div>
     );
   }
 }

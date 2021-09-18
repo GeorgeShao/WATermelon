@@ -13,8 +13,15 @@ class Page extends React.Component {
   }
   render() {
     return (
-      <div>
-        <Rating hertzValue={150} />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          width: "100vw",
+          height: "100wh",
+        }}
+      >
+        {/* <Rating hertzValue={150} /> */}
         {this.state.recordingDone ? <Rating /> : <Button />}
       </div>
     );
