@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class Button extends Component {
   render() {
     return (
-      <div 
+      <div
         style={{
           display: "flex",
           justifyContent: "center",
@@ -11,7 +11,9 @@ export default class Button extends Component {
           alignItems: "center",
         }}
       >
-        <button style={{margin: "0 auto"}}>Start Recording</button>
+        <button style={{ margin: "0 auto" }} id="recordingbutton">
+          Start Recording
+        </button>
       </div>
     );
   }
