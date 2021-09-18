@@ -1,36 +1,4 @@
-/* */
 body {
   background: #ffecd9;
   padding: 1rem;
 }
-
-/* header */
-.header {
-  background-color: white;
-  color: red;
-  border-style: dashed;
-  width: 100%;
-
-}
-
-.headerTitle {
-  text-align: left;
-  margin: 1% 2%;
-}
-
-/* rating box */
-.ratingBox {
-  border-radius: 30px;
-  border-color: green;
-  border-style: solid;
-  margin: auto;
-  padding: 2em, 5em;
-  width: 10em;
-  /*
-    font-size:
-    text-color:
-    etc
-    */
-  text-align: center;
-}
-

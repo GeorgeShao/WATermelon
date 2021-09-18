@@ -1,0 +1,15 @@
+/* TODO add text details */
+.ratingBox {
+    border-radius: 30px;
+    border-color: green;
+    border-style: solid;
+    margin: auto;
+    padding: 2em, 5em;
+    width: 10em;
+    /*
+      font-size:
+      text-color:
+      etc
+      */
+    text-align: center;
+}  

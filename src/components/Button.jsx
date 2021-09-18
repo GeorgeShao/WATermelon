@@ -21,7 +21,7 @@ export default class Button extends Component {
           /*alignItems: "center",*/
         }}
       >
-        <button style={{margin: "0 auto"}} onclick={this.clicked}>Start Recording</button>
+        <button style={{margin: "0 auto"}} onClick={this.clicked}>Start Recording</button>
       </div>
     );
   }

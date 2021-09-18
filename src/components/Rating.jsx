@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles/rating.css';
 
 export default class Rating extends Component {
   constructor(props) {
