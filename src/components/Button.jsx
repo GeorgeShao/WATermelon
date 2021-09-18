@@ -1,19 +1,20 @@
 import React, { Component } from "react";
 
 export default class Button extends Component {
-  constructor(props){
+  constructor(props) {
     super();
     this.clicked = this.clicked.bind(this);
   }
 
-  clicked() { //will start recording process once we're further
+  clicked() {
+    //will start recording process once we're further
     console.log("asdasd");
     this.props.recordingDone();
   }
 
   render() {
     return (
-      <div 
+      <div
         style={{
           display: "flex",
           /*justifyContent: "center",*/
@@ -21,7 +22,9 @@ export default class Button extends Component {
           /*alignItems: "center",*/
         }}
       >
-        <button style={{margin: "0 auto"}} onClick={this.clicked}>Start Recording</button>
+        <button style={{ margin: "0 auto" }} onClick={this.clicked}>
+          Start Recording
+        </button>
       </div>
     );
   }
