@@ -38,8 +38,13 @@ export default class Rating extends Component {
 
     render() {
         return (
+<<<<<<< HEAD
             <div className={""}>
 
+=======
+            <div>
+                rating
+>>>>>>> cd7264e3e0e0a82285272432337821d03c74f55a
             </div>
         )
     }

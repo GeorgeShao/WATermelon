@@ -4,13 +4,20 @@ import Header from '../components/Header'
 import Rating from '../components/Rating'
 
 class Page extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            rating: 0,
+            recordingDone: false,
+        };
+    }
     render() {
-        return
-        (
+        return(
             <div>
                 <Header/>
                 <Button/>
                 <Rating/>
+                {this.state.recordingDone ? <Rating/> : <Button/>}
             </div>
         );
     }
