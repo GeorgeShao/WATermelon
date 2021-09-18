@@ -1,3 +1,14 @@
 * {
     
 }
+
+.header {
+    background-color: white;
+    color: red;
+    border-style: dashed;
+}
+
+.headerTitle {
+    text-align: left;
+    margin: 1% 2%;
+}
