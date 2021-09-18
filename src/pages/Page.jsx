@@ -10,7 +10,15 @@ class Page extends React.Component {
       rating: 0,
       recordingDone: false,
     };
+    this.startRecording = this.startRecording.bind(this)
   }
+
+  startRecording(){
+    this.setState({
+      recordingDone: true,
+    })
+  }
+
   render() {
     return (
       <div
@@ -18,11 +26,14 @@ class Page extends React.Component {
           display: "flex",
           justifyContent: "flex-start",
           width: "100vw",
-          height: "100wh",
+          // height: "100wh",
         }}
       >
         {/* <Rating hertzValue={150} /> */}
-        {this.state.recordingDone ? <Rating /> : <Button />}
+        <br />
+        {this.state.recordingDone ? 
+            <Rating hertzValue={150} /> 
+            : <Button recordingDone={this.startRecording}/>}
       </div>
     );
   }

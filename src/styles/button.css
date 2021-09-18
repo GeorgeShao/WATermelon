@@ -20,6 +20,7 @@ button {
   -ms-user-select: none;
   user-select: none;
   width: 20rem;
+  margin: auto;
 }
 
 button:hover {
