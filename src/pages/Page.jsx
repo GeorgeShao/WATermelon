@@ -28,9 +28,12 @@ function Page() {
       style={{
         display: "flex",
         justifyContent: "flex-start",
-        width: "100vw",
+        width: "97.6vw",
         height: "100wh",
         backgroundImage: `url(${Background})`,
+        backgroundSize: "auto",
+        position: "relative",
+        display: "flow-root",
       }}
     >
       {recordedStarted === false ? (

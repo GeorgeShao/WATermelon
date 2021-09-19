@@ -49,7 +49,7 @@ export default class Rating extends Component {
         backgroundImage: `url(${background})`
       }}>
         <span className={"ratingText"}>
-        {yourScore} :{score}
+        {yourScore} {score}
         <br />
         {scoreSentence}
         </span>
