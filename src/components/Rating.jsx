@@ -21,36 +21,36 @@ export default class Rating extends Component {
     return score;
   }
 
-  //TODO: improve score ranges after discussion
   getScoreText(score) {
     console.log(score >= 20);
     if (score > 100){
-      return 'this is not a valid watermelon';
+      return 'This is not a valid watermelon';
     } else if (score >= 80) {
-      return "amazing";
+      return "Amazing";
     } else if (score < 80 && score >= 60) {
-      return "very good";
+      return "Very good";
     } else if (score < 60 && score >= 40) {
-      return "good";
+      return "Good";
     } else if (score < 40 && score >= 20) {
-      return "meh";
+      return "Meh";
     } else if (score < 20 && score >= 0) {
-      return "bad";
+      return "Bad";
     } else {
-      return "not a real watermelon";
+      return "This is not a valid watermelon";
     }
   }
 
   render() {
     var score = this.calculateScore();
     var scoreSentence = this.getScoreText(score);
+    var yourScore = "Your score is:"
     return (
       <div className={"ratingBox"} style={{
         margin: "10em auto",
         backgroundImage: `url(${background})`
       }}>
         <span className={"ratingText"}>
-        {score}
+        {yourScore} :{score}
         <br />
         {scoreSentence}
         </span>
