@@ -51,8 +51,6 @@ export default class Rating extends Component {
         <br />
         {scoreSentence}
         </span>
-
-        <button onClick={() => this.props.returnButton()}></button>
       </div>
     );
   }
