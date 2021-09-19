@@ -32,8 +32,6 @@ function Page() {
         height: "100wh",
         backgroundImage: `url(${Background})`,
         backgroundSize: "auto",
-        position: "relative",
-        display: "flow-root",
       }}
     >
       {recordedStarted === false ? (
