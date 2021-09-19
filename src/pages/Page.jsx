@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import Rating from "../components/Rating";
 import Loading from "../components/Loading";
 import Cookies from "js-cookie";
+import Background from '../media/wallpaper.png';
 
 function Page() {
   const [recordedStarted, setRecordedStarted] = useState(false);
@@ -29,6 +30,7 @@ function Page() {
         justifyContent: "flex-start",
         width: "100vw",
         height: "100wh",
+        backgroundImage: `url(${Background})`,
       }}
     >
       {recordedStarted === false ? (
