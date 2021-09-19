@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import '../styles/rating.css';
+import background from "../media/ratingBackground.png";
 
 export default class Rating extends Component {
   constructor(props) {
@@ -20,7 +21,6 @@ export default class Rating extends Component {
   }
 
   //TODO: improve score ranges after discussion
-  //switch case is better but not worth swapping over
   getScoreText(score) {
     console.log(score >= 20);
     if (score >= 80) {
@@ -42,10 +42,16 @@ export default class Rating extends Component {
     var score = this.calculateScore();
     var scoreSentence = this.getScoreText(score);
     return (
-      <div className={"ratingBox"}>
+      <div className={"ratingBox"} style={{
+        //TODO: fix this one's centering
+        margin: "10em auto",
+        backgroundImage: `url(${background})`
+      }}>
+        <span className={"ratingText"}>
         {score}
         <br />
         {scoreSentence}
+        </span>
       </div>
     );
   }
