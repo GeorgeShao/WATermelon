@@ -12,7 +12,7 @@ function Loading(props) {
       style={{
         display: "flex",
         // padding: "50vh 40vw",
-        margin: "auto",
+        margin: "22.4em auto",
       }}
     >
       <Box sx={{ position: "relative", display: "inline-flex" }}>
