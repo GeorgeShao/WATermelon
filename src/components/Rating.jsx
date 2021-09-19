@@ -43,7 +43,6 @@ export default class Rating extends Component {
     var scoreSentence = this.getScoreText(score);
     return (
       <div className={"ratingBox"} style={{
-        //TODO: fix this one's centering
         margin: "10em auto",
         backgroundImage: `url(${background})`
       }}>
@@ -52,6 +51,8 @@ export default class Rating extends Component {
         <br />
         {scoreSentence}
         </span>
+
+        <button onClick={() => this.props.returnButton()}></button>
       </div>
     );
   }

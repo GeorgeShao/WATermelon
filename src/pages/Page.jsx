@@ -12,17 +12,38 @@ class Page extends React.Component {
     this.state = {
       rating: 0,
       recordedStarted: false,
+      displayButton: true,
+      displayLoad: false,
+      displayRating: false,
     };
     this.startRecording = this.startRecording.bind(this);
   }
 
-  startRecording() {
+  displayButton() {
     this.setState({
-      recordedStarted: true,
-    });
-    Cookies.set("time_started_recording", Date.now());
-    Cookies.set("five_seconds_done", "f");
-    console.log("started recording");
+      displayRating: false,
+      displayButton: true,
+    })
+  }
+
+  displayLoad() {
+    this.setState({
+      displayButton: false,
+      displayLoad: true,
+    })
+  }
+
+  displayRating() {
+    this.setState({
+      displayLoad: false,
+      displayRating: true,
+    })
+  }
+
+  startRecording() {
+    this.displayLoad();
+    Cookies.set('foo', 'bar')
+    Cookies.set('time_started_recording', Date.now())
   }
 
   render() {
@@ -57,6 +78,27 @@ class Page extends React.Component {
         Cookies.get("five_seconds_done") === "t" ? (
           <Rating />
         ) : null}
+        {/* {this.state.displayButton ? 
+          <Button onClicked={this.startRecording} />
+          :
+          <div></div>
+        }
+
+        {this.state.displayLoad ? (
+          <Loading runOnComplete={this.displayRating} />
+        ) :
+          <div></div>
+        }
+
+        {this.state.displayRating ? (
+          <Rating hertzValue={150} returnButton={this.displayButton}/>
+        ) :
+          <div></div>
+        } */}
+        {Cookies.get('five_seconds_done')}
+        {this.state.recordedStarted === false ? (<Button recordedStarted={this.startRecording} />) : null}
+        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "f" ? (<Loading />) : null}
+        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "t" ? (<Rating />) : null}
       </div>
     );
   }

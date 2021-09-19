@@ -1,8 +1,12 @@
-import * as React from "react";
-import PropTypes from "prop-types";
-import CircularProgress from "@mui/material/CircularProgress";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import React, { useCallback } from 'react';
+import PropTypes from 'prop-types';
+import CircularProgress from '@mui/material/CircularProgress';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+
+const ratingDisplay = useCallback(() => {
+  this.props.displayRating();
+});
 
 function Loading(props) {
   return (
@@ -46,14 +50,16 @@ Loading.propTypes = {
 
 export default function CircularStatic() {
   const [progress, setProgress] = React.useState(10);
-
+  //const displayRating = () => this.props.displayRating();
   React.useEffect(() => {
     const timer = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress >= 100 ? 0 : prevProgress + 1
-      );
+      setProgress((prevProgress) => (prevProgress >= 100 ? 0: prevProgress + 1));
     }, 100);
+    const showRating = setInterval(() => {
+      ratingDisplay()}, 5000
+    );
     return () => {
+      console.log('it finished')
       clearInterval(timer);
     };
   }, []);
