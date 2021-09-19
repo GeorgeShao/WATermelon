@@ -15,10 +15,9 @@ export default class Rating extends Component {
 
   calculateScore() {
     var hertz = this.props.hertzValue;
-    var roundedHertz = Math.round(hertz, 2);
     var score =
-      ((roundedHertz - this.state.LOWEST_HERTZ) / this.state.HERTZ_DIFFERENCE) * 100;
-    return score;
+      ((hertz - this.state.LOWEST_HERTZ) / this.state.HERTZ_DIFFERENCE) * 100;
+    return parseInt(score).toFixed(2);
   }
 
   getScoreText(score) {
