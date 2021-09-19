@@ -3,19 +3,26 @@ const mlModelURL =
 let mic;
 let pitch;
 let freq = 0;
+let freqs = [];
 
-document.cookie = "five_seconds_done=f";
-
-function readCookie(name) {
-  var nameEQ = name + "=";
-  var ca = document.cookie.split(';');
-  for(var i=0;i < ca.length;i++) {
-    var c = ca[i];
-    while (c.charAt(0)==' ') c = c.substring(1,c.length);
-    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-  }
-  return null;
+const setCookie = (name, value, days = 7, path = '/') => {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString()
+  document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=' + path
 }
+
+const getCookie = (name) => {
+  return document.cookie.split('; ').reduce((r, v) => {
+    const parts = v.split('=')
+    return parts[0] === name ? decodeURIComponent(parts[1]) : r
+  }, '')
+}
+
+const deleteCookie = (name, path) => {
+  setCookie(name, '', -1, path)
+}
+
+setCookie("five_seconds_done", "f");
+deleteCookie("average_freq", "")
 
 function modelLoaded() {
   console.log(document.cookie)
@@ -35,16 +42,22 @@ function listening() {
 }
 
 function gotPitch(error, frequency) {
-  console.log(document.cookie);
   if (error) {
     console.error(error);
   } else {
     if (frequency) {
       freq = frequency;
-      console.log(freq);
-      if (parseInt(Date.now()) - parseInt(readCookie('time_started_recording')) > 5000) {
-        document.cookie = "five_seconds_done=t";
+      if (129 <= parseInt(freq) <= 172){
+        if (getCookie("five_seconds_done") === "f"){
+          freqs.push(freq);
+          if (parseInt(Date.now()) - parseInt(getCookie('time_started_recording')) > 5000) {
+            setCookie("five_seconds_done", "t");
+            setCookie("average_freq", freqs.reduce((a, b) => a + b, 0) / freqs.length);
+          }
+        }
+        console.log(freq, document.cookie);
       }
+      
     }
     pitch.getPitch(gotPitch);
   }

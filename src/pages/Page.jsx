@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Button from "../components/Button";
 import Rating from "../components/Rating";
 import Loading from "../components/Loading";
@@ -20,7 +20,6 @@ class Page extends React.Component {
     this.setState({
       recordedStarted: true,
     });
-    Cookies.set('foo', 'bar')
     Cookies.set('time_started_recording', Date.now())
   }
 
@@ -46,8 +45,8 @@ class Page extends React.Component {
         )}
         {Cookies.get('five_seconds_done')}
         {this.state.recordedStarted === false ? (<Button recordedStarted={this.startRecording} />) : null}
-        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "f" ? (<Loading/>) : null}
-        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "t" ? (<Rating/>) : null}
+        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') === "f" ? (<Loading/>) : null}
+        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') === "t" ? (<Rating/>) : null}
       </div>
     );
   }
