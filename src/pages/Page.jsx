@@ -38,7 +38,7 @@ class Page extends React.Component {
           <Loading />
         ) : (
           // <Rating hertzValue={150} />
-          <Button recordedStarted={this.startRecording} />
+          <Button recordingStarted={this.startRecording} />
         )}
       </div>
     );
