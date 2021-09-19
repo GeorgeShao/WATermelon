@@ -49,17 +49,10 @@ Loading.propTypes = {
 export default function CircularStatic(props) {
   const [progress, setProgress] = React.useState(10);
   
-  const ratingDisplay = useCallback(() => {
-    props.displayRating();
-  }, []);
-
   React.useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) => (prevProgress >= 100 ? 0: prevProgress + 1));
     }, 100);
-    const showRating = setTimeout(() => {
-      ratingDisplay()}, 5000
-    );
     return () => {
       console.log('it finished')
       clearInterval(timer);

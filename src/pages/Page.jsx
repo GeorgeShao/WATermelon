@@ -15,6 +15,8 @@ class Page extends React.Component {
       displayButton: true,
       displayLoad: false,
       displayRating: false,
+      recordedFinished: false,  
+      irrelevantBoolean:
     };
     this.startRecording = this.startRecording.bind(this);
   }
@@ -41,7 +43,9 @@ class Page extends React.Component {
   }
 
   startRecording() {
-    this.displayLoad();
+    this.setState({
+      recordedStarted: true,
+    });
     Cookies.set('five_seconds_done', 'f')
     Cookies.set('time_started_recording', Date.now())
   }
@@ -95,10 +99,10 @@ class Page extends React.Component {
         ) :
           <div></div>
         } */}
-        {Cookies.get('five_seconds_done')}
+        {/* {Cookies.get('five_seconds_done')}
         {this.state.recordedStarted === false ? (<Button recordedStarted={this.startRecording} />) : null}
         {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "f" ? (<Loading />) : null}
-        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "t" ? (<Rating />) : null}
+        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "t" ? (<Rating />) : null} */}
       </div>
     );
   }
