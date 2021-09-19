@@ -7,9 +7,8 @@ export default class Button extends Component {
   }
 
   clicked() {
-    //will start recording process once we're further
-    console.log("asdasd");
-    this.props.recordedStarted();
+    //TODO will start recording process once we're further
+    this.props.recordingDone();
   }
 
   render() {

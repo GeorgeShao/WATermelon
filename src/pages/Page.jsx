@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import Button from "../components/Button";
-import Header from "../components/Header";
 import Rating from "../components/Rating";
 import Loading from "../components/Loading";
-import background from "../media/background.png";
+import background from "../media/ratingBackground.png";
 import LoadingScreen from "../components/LoadingScreen";
 import Cookies from 'js-cookie';
 
@@ -33,7 +32,7 @@ class Page extends React.Component {
           justifyContent: "flex-start",
           width: "100vw",
           height: "100wh",
-          // backgroundI0mage: `url(${background})`
+          // backgroundImage: `url(${background})`,
         }}
       >
         {Cookies.get('abc')}

@@ -1,15 +1,16 @@
 /* TODO add text details */
 .ratingBox {
     border-radius: 30px;
-    border-color: green;
-    border-style: solid;
+    background-size: 450px;
     margin: auto;
     padding: 2em, 5em;
-    width: 10em;
-    /*
-      font-size:
-      text-color:
-      etc
-      */
+    width: 25rem;
+    height: 6.25rem;
     text-align: center;
-}  
+}
+
+.ratingText {
+  font-size: 40px;
+  color: white;
+  /* TODO font-family: */
+}
