@@ -29,7 +29,8 @@ const deleteCookie = (name, path) => {
 };
 
 setCookie("five_seconds_done", "t");
-deleteCookie("average_freq", "");
+deleteCookie("average_freq", "")
+deleteCookie("freqs");
 
 function modelLoaded() {
   console.log(document.cookie);
@@ -57,6 +58,7 @@ function gotPitch(error, frequency) {
       if (129 <= parseInt(freq) <= 172) {
         if (getCookie("five_seconds_done") === "f") {
           freqs.push(freq);
+          setCookie("freqs", freqs)
           if (
             parseInt(Date.now()) -
               parseInt(getCookie("time_started_recording")) >
@@ -67,6 +69,7 @@ function gotPitch(error, frequency) {
               "average_freq",
               freqs.reduce((a, b) => a + b, 0) / freqs.length
             );
+            setCookie("freqs", freqs)
           }
           console.log("REC", freq, document.cookie);
         } else {

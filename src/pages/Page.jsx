@@ -16,12 +16,13 @@ function Page() {
   }
 
   useEffect(() => {
+    console.log("TIMER")
     const interval = setInterval(() => {
       setTimer(timer + 1);
-    }, 10000);
+    }, 250);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [Cookies.get('freqs'), timer]);
 
   return (
     <div
