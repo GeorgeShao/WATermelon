@@ -47,7 +47,6 @@ function Page() {
       ) : null}
     {/* </div>   */}
   );
-}
         {/* {Cookies.get('five_seconds_done')}
         {this.state.recordedStarted === false ? (<Button recordedStarted={this.startRecording} />) : null}
         {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "f" ? (<Loading />) : null}
