@@ -4,7 +4,7 @@ import Rating from "../components/Rating";
 import Loading from "../components/Loading";
 import background from "../media/ratingBackground.png";
 import LoadingScreen from "../components/LoadingScreen";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 
 class Page extends React.Component {
   constructor(props) {
@@ -20,7 +20,9 @@ class Page extends React.Component {
     this.setState({
       recordedStarted: true,
     });
-    Cookies.set('time_started_recording', Date.now())
+    Cookies.set("time_started_recording", Date.now());
+    Cookies.set("five_seconds_done", "f");
+    console.log("started recording");
   }
 
   render() {
@@ -34,7 +36,7 @@ class Page extends React.Component {
           // backgroundImage: `url(${background})`,
         }}
       >
-        {Cookies.get('abc')}
+        {Cookies.get("abc")}
         {/* <Rating hertzValue={150} /> */}
         <br />
         {this.state.recordedStarted ? (
@@ -43,10 +45,18 @@ class Page extends React.Component {
           // <Rating hertzValue={150} />
           <Button recordingStarted={this.startRecording} />
         )}
-        {Cookies.get('five_seconds_done')}
-        {this.state.recordedStarted === false ? (<Button recordedStarted={this.startRecording} />) : null}
-        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') === "f" ? (<Loading/>) : null}
-        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') === "t" ? (<Rating/>) : null}
+        {Cookies.get("five_seconds_done")}
+        {this.state.recordedStarted === false ? (
+          <Button recordedStarted={this.startRecording} />
+        ) : null}
+        {this.state.recordedStarted === true &&
+        Cookies.get("five_seconds_done") === "f" ? (
+          <Loading />
+        ) : null}
+        {this.state.recordedStarted === true &&
+        Cookies.get("five_seconds_done") === "t" ? (
+          <Rating />
+        ) : null}
       </div>
     );
   }

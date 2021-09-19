@@ -5,27 +5,34 @@ let pitch;
 let freq = 0;
 let freqs = [];
 
-const setCookie = (name, value, days = 7, path = '/') => {
-  const expires = new Date(Date.now() + days * 864e5).toUTCString()
-  document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=' + path
-}
+const setCookie = (name, value, days = 7, path = "/") => {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie =
+    name +
+    "=" +
+    encodeURIComponent(value) +
+    "; expires=" +
+    expires +
+    "; path=" +
+    path;
+};
 
 const getCookie = (name) => {
-  return document.cookie.split('; ').reduce((r, v) => {
-    const parts = v.split('=')
-    return parts[0] === name ? decodeURIComponent(parts[1]) : r
-  }, '')
-}
+  return document.cookie.split("; ").reduce((r, v) => {
+    const parts = v.split("=");
+    return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+  }, "");
+};
 
 const deleteCookie = (name, path) => {
-  setCookie(name, '', -1, path)
-}
+  setCookie(name, "", -1, path);
+};
 
-setCookie("five_seconds_done", "f");
-deleteCookie("average_freq", "")
+setCookie("five_seconds_done", "t");
+deleteCookie("average_freq", "");
 
 function modelLoaded() {
-  console.log(document.cookie)
+  console.log(document.cookie);
   console.log("ml model loaded");
   pitch.getPitch(gotPitch);
 }
@@ -47,17 +54,25 @@ function gotPitch(error, frequency) {
   } else {
     if (frequency) {
       freq = frequency;
-      if (129 <= parseInt(freq) <= 172){
-        if (getCookie("five_seconds_done") === "f"){
+      if (129 <= parseInt(freq) <= 172) {
+        if (getCookie("five_seconds_done") === "f") {
           freqs.push(freq);
-          if (parseInt(Date.now()) - parseInt(getCookie('time_started_recording')) > 5000) {
+          if (
+            parseInt(Date.now()) -
+              parseInt(getCookie("time_started_recording")) >
+            5000
+          ) {
             setCookie("five_seconds_done", "t");
-            setCookie("average_freq", freqs.reduce((a, b) => a + b, 0) / freqs.length);
+            setCookie(
+              "average_freq",
+              freqs.reduce((a, b) => a + b, 0) / freqs.length
+            );
           }
+          console.log("REC", freq, document.cookie);
+        } else {
+          console.log("PRE/POS", freq, document.cookie);
         }
-        console.log(freq, document.cookie);
       }
-      
     }
     pitch.getPitch(gotPitch);
   }
