@@ -24,11 +24,11 @@ function Page() {
   }, [Cookies.get('freqs'), timer]);
 
   return (
-    <div
+    <div className={"mainBackground"}
       style={{
         display: "flex",
         justifyContent: "flex-start",
-        width: "97.6vw",
+        width: "98.2vw",
         height: "100wh",
         backgroundImage: `url(${Background})`,
         backgroundSize: "auto",

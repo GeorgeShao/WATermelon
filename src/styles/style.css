@@ -2,3 +2,9 @@ body {
   background: #ffecd9;
   padding: 1rem;
 }
+
+@media (max-width: 1000px) {
+  .mainBackground {
+    width: 97vw;
+  }
+}
