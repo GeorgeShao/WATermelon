@@ -11,7 +11,8 @@ function Loading(props) {
     <div
       style={{
         display: "flex",
-        padding: "50vh 40vw",
+        // padding: "50vh 40vw",
+        margin: "auto",
       }}
     >
       <Box sx={{ position: "relative", display: "inline-flex" }}>
@@ -52,7 +53,7 @@ export default function CircularStatic(props) {
   React.useEffect(() => {
     const timer = setInterval(() => {
       setProgress((prevProgress) => (prevProgress >= 100 ? 0: prevProgress + 1));
-    }, 100);
+    }, 50);
     return () => {
       console.log('it finished')
       clearInterval(timer);

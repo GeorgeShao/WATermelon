@@ -2,8 +2,6 @@ import React, {useState, useEffect} from "react";
 import Button from "../components/Button";
 import Rating from "../components/Rating";
 import Loading from "../components/Loading";
-import background from "../media/ratingBackground.png";
-import LoadingScreen from "../components/LoadingScreen";
 import Cookies from "js-cookie";
 
 function Page() {

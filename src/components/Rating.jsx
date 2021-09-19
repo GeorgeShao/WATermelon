@@ -8,8 +8,8 @@ export default class Rating extends Component {
     this.state = {
       //should maybe be 129 and 172 but just in case better ones exist
       LOWEST_HERTZ: 120,
-      HIGHEST_HERTZ: 200,
-      HERTZ_DIFFERENCE: 80, //bad but not sure how to do this automatically
+      HIGHEST_HERTZ: 180,
+      HERTZ_DIFFERENCE: 60, //bad but not sure how to do this automatically
     };
   }
 
@@ -23,7 +23,9 @@ export default class Rating extends Component {
   //TODO: improve score ranges after discussion
   getScoreText(score) {
     console.log(score >= 20);
-    if (score >= 80) {
+    if (score > 100){
+      return 'this is not a valid watermelon';
+    } else if (score >= 80) {
       return "amazing";
     } else if (score < 80 && score >= 60) {
       return "very good";
