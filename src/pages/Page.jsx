@@ -5,6 +5,7 @@ import Rating from "../components/Rating";
 import Loading from "../components/Loading";
 import background from "../media/background.png";
 import LoadingScreen from "../components/LoadingScreen";
+import Cookies from 'js-cookie';
 
 class Page extends React.Component {
   constructor(props) {
@@ -20,6 +21,8 @@ class Page extends React.Component {
     this.setState({
       recordedStarted: true,
     });
+    Cookies.set('foo', 'bar')
+    Cookies.set('time_started_recording', Date.now())
   }
 
   render() {
@@ -33,14 +36,13 @@ class Page extends React.Component {
           // backgroundI0mage: `url(${background})`
         }}
       >
+        {Cookies.get('abc')}
         {/* <Rating hertzValue={150} /> */}
         <br />
-        {this.state.recordedStarted ? (
-          <Loading />
-        ) : (
-          // <Rating hertzValue={150} />
-          <Button recordedStarted={this.startRecording} />
-        )}
+        {Cookies.get('five_seconds_done')}
+        {this.state.recordedStarted === false ? (<Button recordedStarted={this.startRecording} />) : null}
+        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "f" ? (<Loading/>) : null}
+        {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "t" ? (<Rating/>) : null}
       </div>
     );
   }
