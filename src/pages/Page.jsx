@@ -33,8 +33,6 @@ function Page() {
         height: "100wh",
       }}
     >
-      {Cookies.get("abc")}
-      {Cookies.get("five_seconds_done")}
       {recordedStarted === false ? (
         <Button onClicked={startRecording}/>
       ) : null}
@@ -44,10 +42,9 @@ function Page() {
       ) : null}
       {recordedStarted === true &&
       Cookies.get("five_seconds_done") === "t" ? (
-        <Rating hertzValue={150}/>
+        <Rating hertzValue={Cookies.get("average_freq")}/>
       ) : null}
     {/* </div>   */}
-  );
         {/* {Cookies.get('five_seconds_done')}
         {this.state.recordedStarted === false ? (<Button recordedStarted={this.startRecording} />) : null}
         {this.state.recordedStarted === true && Cookies.get('five_seconds_done') == "f" ? (<Loading />) : null}
