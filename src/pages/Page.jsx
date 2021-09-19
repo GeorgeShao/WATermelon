@@ -41,9 +41,8 @@ class Page extends React.Component {
   }
 
   startRecording() {
-    console.log('testing')
     this.displayLoad();
-    Cookies.set('foo', 'bar')
+    Cookies.set('five_seconds_done', 'f')
     Cookies.set('time_started_recording', Date.now())
   }
 
